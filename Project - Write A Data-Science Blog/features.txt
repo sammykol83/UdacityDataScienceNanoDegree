@@ -1,0 +1,192 @@
+The purpose of this file is to describe the features of the data, since there's no "concentrated" explanation.
+The features were collected from several databases and part of them were estimated from other features.
+The referrals to the databases from which the features were taken can be found in the Joule article:
+
+"DeepSolar: A Machine Learning Framework to Efficiently Construct a Solar Deployment Database in the United States"
+in section: 1.2 - Other Data
+https://www.cell.com/joule/pdfExtended/S2542-4351(18)30570-1
+
+For convenience, here's the list: (Note: I use the sign '/' as division operation)
+
+(from the authors of the article)
+tile_count:               				Number of image tiles in the location (area) of that row
+tile_count_residential:					Number of image tiles in residential area
+tile_count_nonresidential:				Number of image tiles in non-residential area
+solar_system_count:       				Number of solar systems counted within all tiles.
+fips:                     				I'm not sure what it is. Some index or counter, doesn't seem important.
+total_panel_area:         				The ESTIMATED size of the panels in the area
+total_panel_area_residential:			The total panels area in residential area
+total_panel_area_nonresidential:	    The total panels area in non-residential area.
+solar_panel_area_divided_by_area:		total_panel_area_residential / total_area
+solar_panel_area_per_capita:			total_panel_area_residential / population
+solar_system_count_residential:			number of solar system installations in the residential areas
+solar_system_count_nonresidential:      number of solar system installations in the non-residential areas
+number_of_solar_system_per_household:	number of residential solar systems installed / household_count
+number_of_years_of_education		   	Average years of education
+diversity                              	Simpson’s Diversity Index (racial). See: https://en.wikipedia.org/wiki/Diversity_index
+
+( from American Community Surveys (2011-2015) )
+average_household_income: 				This includes the income of the householder and all other individuals 15 years old and over in the household, whether they are related to the householder or not.
+county: 								county
+education_bachelor: 					Population 25 Years and Over with education of Bachelor's degree
+education_college: 						Population 25 Years and Over with some college degree
+education_doctoral: 					Population 25 Years and Over with education of Doctorate degree
+education_high_school_graduate: 		Population 25 Years and Over with High School Graduate (Includes Equivalency)
+education_less_than_high_school: 		Population 25 Years and Over with education of Less than High School
+education_master: 						Population 25 Years and Over with education of Master's Degree
+education_population: 					Total number of "educated people" 25 years and over.
+education_professional_school: 			Population 25 Years and Over with education of Bachelor's degree
+employed: 								number of employed people in area
+gini_index: 							value from 0 to 1.  0 representing perfect equality and 1 representing perfect inequality.
+heating_fuel_coal_coke:					number of occupied housing units heating their house using Coal, Coke or Wood
+heating_fuel_electricity:				number of occupied housing units heating their house using Electricity
+heating_fuel_fuel_oil_kerosene:			number of occupied housing units heating their house using Fuel Oil, Kerosene, Etc.
+heating_fuel_gas:						number of occupied housing units heating their house using Gas (Utility, Bottled, Tank, or Lp Gas)
+heating_fuel_housing_unit_count:		number of occupied housing units (equal to household_count)
+heating_fuel_none:						number of occupied housing units heating their house with no fuel.
+heating_fuel_other:						number of occupied housing units heating their house using Other Fuel
+heating_fuel_solar:						number of occupied housing units heating their house using Solar Energy
+land_area: 								Land Area (Sq. Miles)
+per_capita_income:						area total income / area total population.
+population: 							Total population
+population_density:						population / land_area. (people per square mile)
+poverty_family_below_poverty_level: 	Number of families below poverty level(?)
+poverty_family_count: 					Total number of families in region(?)
+race_asian:								Number of people of asian race from total population.
+race_black_africa:						Number of people of Black or African American Alone race from total population.
+race_indian_alaska:						Number of people of American Indian and Alaska Native Alone race from total population.
+race_islander:							Number of people of Native Hawaiian and Other Pacific Islander Alone race from total population.
+race_other:								Number of people of Some Other Race Alone race from total population.
+race_two_more:							Number of people of Two or More Races race from total population.
+race_white:								Number of people of White Alone race from total population.
+state:									e.g. California, Minnesota, ...
+total_area:								Land Area + Water area (Sq. Miles)
+unemployed: 							number of unemployed people in area
+water_area:								Water Area (Sq. Miles)
+education_less_than_high_school_rate: 	"education_less_than_high_school" / "education_population"
+education_high_school_graduate_rate:  	"education_high_school_graduate_rate" / "education_population"
+education_college_rate:				  	"education_college_rate" / "education_population"
+education_bachelor_rate:				"education_bachelor_rate" / "education_population"
+education_master_rate:					"education_master_rate" / "education_population"
+education_professional_school_rate:		"education_professional_school_rate" / "education_population"
+education_doctoral_rate:				"education_doctoral_rate" / "education_population"
+race_white_rate:						Number of white / total population
+race_black_africa_rate:					Number of black / total population
+race_indian_alaska_rate:				Number of Indian Americans / total population
+race_asian_rate:						Number of Asian / total population
+race_islander_rate:						Number of native Hawaiian or other pacific islanders / total population
+race_other_rate:						Number of other race / total population
+race_two_more_rate:						Number of 2 more races / total population
+employ_rate: 							Unemployment Rate for Civilian Population in Labor Force 16 Years and Over
+poverty_family_below_poverty_level_rate: ratio of "poverty_family_below_poverty_level"/"poverty_family_count"
+heating_fuel_gas_rate:					occupied housing units heating their house using gas / household_count
+heating_fuel_electricity_rate:			occupied housing units heating their house using Electricity / household_count
+heating_fuel_fuel_oil_kerosene_rate:	occupied housing units heating their house using oil or kerosene / household_count
+heating_fuel_coal_coke_rate:			occupied housing units heating their house using coal or coke / household_count
+heating_fuel_solar_rate:				occupied housing units heating their house using solar energy / household_count
+heating_fuel_other_rate:				occupied housing units heating their house using some other energy / household_count
+heating_fuel_none_rate:					occupied housing units that use no fuel for heating their house / household_count
+median_household_income:                The median household income
+household_count:						Number of households
+average_household_size:					Number of people in households / Occupied Households
+housing_unit_count						Total number of housing units
+housing_unit_occupied_count				Number of occupied housing units
+housing_unit_median_value:				Median House Value for All Owner-Occupied Housing Units
+housing_unit_median_gross_rent:			Median gross rent out of Renter-occupied housing units paying cash rent
+age_18_24_rate: 						Total population 18 to 24 years
+age_25_34_rate: 						Total population 25 to 34 years
+age_more_than_85_rate: 					Total population 85 years and over
+age_75_84_rate: 						Total population 75 to 84 years
+age_35_44_rate: 						Total population 35 to 44 years
+age_45_54_rate: 						Total population 45 to 54 years
+age_65_74_rate: 						Total population 65 to 74 years
+age_55_64_rate: 						Total population 55 to 64 years
+age_10_14_rate: 						Total population 10 to 14 years
+age_15_17_rate: 						Total population 15 to 17 years
+age_5_9_rate: 							Total population 5 to 9 years
+household_type_family_rate: 			Seems to be the ratio between family and non-family households
+dropout_16_19_inschool_rate: 			Ratio of people ages 16-19 who ARE enrolled or graduated high school.
+occupation_construction_rate: 			people working in Construction / Civilian employed population 16 years and Over
+occupation_public_rate:					people working in Public Administration / Civilian employed population 16 years and Over
+occupation_information_rate:			people working in Information / Civilian employed population 16 years and Over
+occupation_finance_rate:				people working in Finance and Insurance, and Real Estate and Rental and Leasing / Civilian employed population 16 years and Over
+occupation_education_rate:				people working in Educational Services, and Health Care and Social Assistance / Civilian employed population 16 years and Over
+occupation_administrative_rate:			people working in Other Services, Except Public Administration / Civilian employed population 16 years and Over
+occupation_manufacturing_rate:			people working in Manufacturing / Civilian employed population 16 years and Over
+occupation_wholesale_rate:				people working in Wholesale Trade / Civilian employed population 16 years and Over
+occupation_retail_rate:					people working in Retail Trade / Civilian employed population 16 years and Over
+occupation_transportation_rate:			people working in Transportation and Warehousing, and Utilities / Civilian employed population 16 years and Over
+occupation_arts_rate:					people working in Arts, Entertainment, and Recreation, and Accommodation and Food Services / Civilian employed population 16 years and Over
+occupation_agriculture_rate:			people working in Agriculture, Forestry, Fishing and Hunting, and Mining / Civilian employed population 16 years and Over
+occupancy_vacant_rate:                  ratio of vacant housing units out of all Housing units.
+occupancy_owner_rate:					ratio of occupied houses by owner (not renter) out of all Occupied Housing Units
+mortgage_with_rate:						Of the Owner-occupied housing units, what ratio are still paying a mortgage
+transportation_home_rate:				Workers 16 years and over working at home / Total Workers 16 Years and Over
+transportation_car_alone_rate:			Workers 16 years and over commuting to work by car alone / Total Workers 16 Years and Over
+transportation_walk_rate:				Workers 16 years and over commuting to work by walking / Total Workers 16 Years and Over
+transportation_carpool_rate:			Workers 16 years and over commuting to work by carpooling / Total Workers 16 Years and Over
+transportation_motorcycle_rate:			Workers 16 years and over commuting to work by motorcycle / Total Workers 16 Years and Over
+transportation_bicycle_rate:			Workers 16 years and over commuting to work by bicycle / Total Workers 16 Years and Over
+transportation_public_rate:				Workers 16 years and over commuting to work by PT (includes taxicab)/ Total Workers 16 Years and Over
+travel_time_less_than_10_rate:			Travel Time to Work for Workers 16 Years and Over (Who Did Not Work At Home) smaller than 10 minutes / Workers 16 Years and Over Who Did Not Work at Home
+travel_time_10_19_rate:					Travel Time to Work for Workers 16 Years and Over (Who Did Not Work At Home) smaller than 10-19 minutes / Workers 16 Years and Over Who Did Not Work at Home
+travel_time_20_29_rate:					Travel Time to Work for Workers 16 Years and Over (Who Did Not Work At Home) smaller than 20-29 minutes / Workers 16 Years and Over Who Did Not Work at Home
+travel_time_30_39_rate:					Travel Time to Work for Workers 16 Years and Over (Who Did Not Work At Home) smaller than 30-39 minutes / Workers 16 Years and Over Who Did Not Work at Home
+travel_time_40_59_rate:					Travel Time to Work for Workers 16 Years and Over (Who Did Not Work At Home) smaller than 40-59 minutes / Workers 16 Years and Over Who Did Not Work at Home
+travel_time_60_89_rate:					Travel Time to Work for Workers 16 Years and Over (Who Did Not Work At Home) smaller than 60-89 minutes / Workers 16 Years and Over Who Did Not Work at Home
+health_insurance_public_rate:			Civilian Noninstitutionalized Population with public health coverage / Civilian Noninstitutionalized Population
+health_insurance_none_rate:				Civilian Noninstitutionalized Population with no health insurance coverage / Civilian Noninstitutionalized Population
+age_median:								median of age
+travel_time_average:					Average travel time.
+
+( from NASA Surface Meteorology and Solar Energy. https://eosweb.larc.nasa.gov/sse/. Accessed: 2017-09-01)
+lat:									Latitude
+lon:									Longitude
+elevation:								Elevation[meters]
+heating_design_temperature:
+cooling_design_temperature:
+earth_temperature_amplitude:
+frost_days:								The daily accumulation of degrees when the daily mean temperature is below 0 degrees Celsius
+air_temperature:
+relative_humidity:
+daily_solar_radiation:					The average solar radiation (Kwh/squared meter) per day
+atmospheric_pressure:
+wind_speed:
+earth_temperature:						Ground temperature
+heating_degree_days:					The number of days where average temperature is below 18[deg celsius]. Indicates if heating is needed
+cooling_degree_days:					See above. Number of days with tempreature ABOVE 18[deg celsius]
+
+(from 2012 United States President Election Results.
+https://www.theguardian.com/news/datablog/2012/nov/07/us- 2012-election-county-resultsdownload.
+Accessed: 2017-07-01 )
+voting_2016_dem_percentage
+voting_2016_gop_percentage
+voting_2016_dem_win
+voting_2012_dem_percentage
+voting_2012_gop_percentage
+voting_2012_dem_win
+
+(from dsireusa.org)
+net_metering:   						number of years since the start of net metering
+feedin_tariff:  						number of years since the start of feed-in tariff
+cooperate_tax:  						number of years since the start of corporate tax credit programs
+property_tax:   						number of years since the start of property tax incentives
+sales_tax: 								number of years since the start of sales tax incentives
+rebate:  								number of years since the start of rebate program
+incentive_count_residential:			Not sure. Number of available incentives for residential?
+incentive_count_nonresidential:         Not sure. Number of available incentives for nonresidential?
+incentive_residential_state_level:      Not sure. Number of available incentives for residential at the state level?
+incentive_nonresidential_state_level:   Not sure. Number of available incentives for nonresidential at the state level?
+
+( from: Official Energy Statistics from the U.S. Government. U.S. Energy Information Administration (EIA).
+https://www.eia.gov. Accessed: 2018-01-01 )
+avg_electricity_retail_rate: 			Average residential retail electricity rate/price data over the past five years.
+electricity_price_residential:			Electricity price for residential (per the census year?)
+electricity_price_commercial:           Electricity price for commercial (per the census year?)
+electricity_price_industrial:			Electricity price for industrial (per the census year?)
+electricity_price_transportation:		Electricity price for transportation (per the census year?)
+electricity_price_overall:				Electricity price for overall 	(per the census year?)
+electricity_consume_residential:		Electricity consumption for residential
+electricity_consume_commercial:			Electricity consumption for commercial
+electricity_consume_industrial:			Electricity consumption for industrial
+electricity_consume_total:				Electricity consumption for total
