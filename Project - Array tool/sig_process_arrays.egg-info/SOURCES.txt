@@ -1,0 +1,9 @@
+setup.py
+sig_process_arrays/Array.py
+sig_process_arrays/ULA.py
+sig_process_arrays/__init__.py
+sig_process_arrays/tests.py
+sig_process_arrays.egg-info/PKG-INFO
+sig_process_arrays.egg-info/SOURCES.txt
+sig_process_arrays.egg-info/dependency_links.txt
+sig_process_arrays.egg-info/top_level.txt

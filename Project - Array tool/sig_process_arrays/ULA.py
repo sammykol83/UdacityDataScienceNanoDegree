@@ -1,4 +1,4 @@
-from Arrays.Array import Array
+from sig_process_arrays.Array import Array
 import numpy as np
 import matplotlib.pyplot as plt
 
