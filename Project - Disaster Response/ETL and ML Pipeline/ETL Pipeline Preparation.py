@@ -8,37 +8,24 @@
 # - Load `messages.csv` into a dataframe and inspect the first few lines.
 # - Load `categories.csv` into a dataframe and inspect the first few lines.
 
-# In[ ]:
-
-
 # import libraries
-
-
-# In[ ]:
-
+import pandas as pd
+from sqlalchemy import create_engine
 
 # load messages dataset
-messages = 
+messages = pd.read_csv('messages.csv')
 messages.head()
 
-
-# In[ ]:
-
-
 # load categories dataset
-categories = 
+categories = pd.read_csv('categories.csv')
 categories.head()
-
 
 # ### 2. Merge datasets.
 # - Merge the messages and categories datasets using the common id
 # - Assign this combined dataset to `df`, which will be cleaned in the following steps
 
-# In[ ]:
-
-
 # merge datasets
-df = 
+df = messages.merge(categories, how='outer', on=['id'])
 df.head()
 
 
@@ -47,110 +34,64 @@ df.head()
 # - Use the first row of categories dataframe to create column names for the categories data.
 # - Rename columns of `categories` with new column names.
 
-# In[ ]:
-
-
 # create a dataframe of the 36 individual category columns
-categories = 
+id_series = pd.Series(categories.id.values, index = categories.index)
+categories = pd.Series(categories.categories).str.split(pat=';', expand=True)
 categories.head()
 
-
-# In[ ]:
-
-
 # select the first row of the categories dataframe
-row = 
+row = categories.iloc[0]
 
 # use this row to extract a list of new column names for categories.
-# one way is to apply a lambda function that takes everything 
+# one way is to apply a lambda function that takes everything
 # up to the second to last character of each string with slicing
-category_colnames = 
+category_colnames = [w[:-2] for w in row.values]
 print(category_colnames)
-
-
-# In[ ]:
-
 
 # rename the columns of `categories`
 categories.columns = category_colnames
 categories.head()
 
-
-# ### 4. Convert category values to just numbers 0 or 1.
-# - Iterate through the category columns in df to keep only the last character of each string (the 1 or 0). For example, `related-0` becomes `0`, `related-1` becomes `1`. Convert the string to a numeric value.
-# - You can perform [normal string actions on Pandas Series](https://pandas.pydata.org/pandas-docs/stable/text.html#indexing-with-str), like indexing, by including `.str` after the Series. You may need to first convert the Series to be of type string, which you can do with `astype(str)`.
-
-# In[ ]:
-
-
 for column in categories:
     # set each value to be the last character of the string
-    categories[column] = 
-    
-    # convert column from string to numeric
-    categories[column] = 
-categories.head()
+    categories[column] = categories[column].str[-1]
 
+    # convert column from string to numeric
+    categories[column] = categories[column].astype(int)
+categories.head()
 
 # ### 5. Replace `categories` column in `df` with new category columns.
 # - Drop the categories column from the df dataframe since it is no longer needed.
 # - Concatenate df and categories data frames.
 
-# In[ ]:
-
-
 # drop the original categories column from `df`
-
-
+df = df.drop('categories', axis=1)
 df.head()
-
-
-# In[ ]:
-
 
 # concatenate the original dataframe with the new `categories` dataframe
-df = 
+categories['id'] = id_series
+df = df.merge(categories, how='outer', on =['id'])
 df.head()
-
 
 # ### 6. Remove duplicates.
 # - Check how many duplicates are in this dataset.
 # - Drop the duplicates.
 # - Confirm duplicates were removed.
 
-# In[ ]:
-
-
 # check number of duplicates
-
-
-# In[ ]:
-
+df.duplicated().sum()
 
 # drop duplicates
-
-
-# In[ ]:
-
+df = df[~df.duplicated()]
 
 # check number of duplicates
-
+df.duplicated().sum()
 
 # ### 7. Save the clean dataset into an sqlite database.
 # You can do this with pandas [`to_sql` method](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.to_sql.html) combined with the SQLAlchemy library. Remember to import SQLAlchemy's `create_engine` in the first cell of this notebook to use it below.
 
-# In[ ]:
-
-
 engine = create_engine('sqlite:///InsertDatabaseName.db')
 df.to_sql('InsertTableName', engine, index=False)
 
-
 # ### 8. Use this notebook to complete `etl_pipeline.py`
 # Use the template file attached in the Resources folder to write a script that runs the steps above to create a database based on new datasets specified by the user. Alternatively, you can complete `etl_pipeline.py` in the classroom on the `Project Workspace IDE` coming later.
-
-# In[ ]:
-
-
-
-
