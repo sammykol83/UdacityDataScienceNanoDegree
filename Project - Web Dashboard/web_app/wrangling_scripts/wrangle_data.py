@@ -16,7 +16,7 @@ def return_figures():
     """
 
     # Load the data
-    df = pd.read_csv(r'data\googleplaystore.csv')
+    df = pd.read_csv(r'/app/data/googleplaystore.csv')
 
     # Drop null values. I don't care about accuracy or imputation etc.. (for this exercise).
     # Approximately 10% of rows dropeed.
