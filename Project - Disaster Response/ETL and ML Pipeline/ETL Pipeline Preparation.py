@@ -90,8 +90,8 @@ df.duplicated().sum()
 # ### 7. Save the clean dataset into an sqlite database.
 # You can do this with pandas [`to_sql` method](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.to_sql.html) combined with the SQLAlchemy library. Remember to import SQLAlchemy's `create_engine` in the first cell of this notebook to use it below.
 
-engine = create_engine('sqlite:///InsertDatabaseName.db')
-df.to_sql('InsertTableName', engine, index=False)
+engine = create_engine('sqlite:///DisasterResponse.db')
+df.to_sql('Messages', engine, index=False)
 
 # ### 8. Use this notebook to complete `etl_pipeline.py`
 # Use the template file attached in the Resources folder to write a script that runs the steps above to create a database based on new datasets specified by the user. Alternatively, you can complete `etl_pipeline.py` in the classroom on the `Project Workspace IDE` coming later.

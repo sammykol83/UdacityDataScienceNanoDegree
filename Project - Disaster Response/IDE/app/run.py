@@ -11,11 +11,12 @@ from sklearn.externals import joblib
 from sqlalchemy import create_engine
 from return_figures import return_figures
 
+#----------- Change this flag to run on a local PC host --------- #
+run_on_udacity_terminal = 1
+#---------------------------------------------------------------- #
 
 app = Flask(__name__)
-#----------- Change this flag to run on a local PC host --------- #
-run_on_udacity_terminal = 0
-#---------------------------------------------------------------- #
+
 
 def tokenize(text):
     tokens = word_tokenize(text)
@@ -30,7 +31,7 @@ def tokenize(text):
 
 # load data
 engine = create_engine('sqlite:///../data/DisasterResponse.db')
-df = pd.read_sql_table('Message', engine)
+df = pd.read_sql_table('InsertTableName', engine)
 
 # load model
 model = joblib.load("../models/classifier.pkl")
@@ -44,10 +45,6 @@ ids = ['figure-{}'.format(i) for i, _ in enumerate(figures)]
 @app.route('/')
 @app.route('/index')
 def index():
-    #figures = return_figures()
-
-    # plot ids for the html id tag
-    #ids = ['figure-{}'.format(i) for i, _ in enumerate(figures)]
 
     # Convert the plotly figures to JSON for javascript in html template
     figuresJSON = json.dumps(figures, cls=plotly.utils.PlotlyJSONEncoder)
@@ -74,6 +71,7 @@ def go():
 
 
 def main():
+    # Decide IP to use according to platform
     if run_on_udacity_terminal:
         host_ip = '0.0.0.0'
     else:

@@ -26,7 +26,7 @@ import pickle
 
 # load data from database
 engine = create_engine('sqlite:///DisasterResponse.db')
-df = pd.read_sql_table('Message', engine)
+df = pd.read_sql_table('Messages', engine)
 X = df['message']
 Y = df[df.columns.tolist()[5:]]
 
