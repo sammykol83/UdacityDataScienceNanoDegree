@@ -43,9 +43,6 @@ Press on the link or copy it to your browser and view the dashboard.
 See the ```requirements.txt``` file for all packages (and their versions) 
 used to generate this project. 
 
-## Project Motivation <a name="#project-motivation"></a>
-The project is a showcase for my "capabilities" of deploying a web dashboard using
-several tools and methods, both in the frontend and backend.
 
 ## Short inner workings description <a name="short-inner-workings-description"></a>
 The structure of the project: 
