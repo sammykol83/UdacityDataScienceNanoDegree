@@ -1,13 +1,13 @@
 {% extends "master.html" %}
 {% block title %}Results{% endblock %}
 
-{% block message %}
+{% block content %}
+    {% block message %}
     <hr />
     <h4 class="text-center">MESSAGE</h4>
     <p class="text-center"><i>{{query}}</i></p>
-{% endblock %}
 
-{% block content %}
+
     <h1 class="text-center">Result</h1>
         <ul class="list-group">
             {% for category, classification in classification_result.items() %}
@@ -17,8 +17,8 @@
                     <li class="list-group-item list-group-item-dark text-center">{{category.replace('_', ' ').title()}}</li>
                 {% endif %}
             {% endfor %}
-
+        </ul>
         </div>
     </div>
-
+ {% endblock %}
 {% endblock %}

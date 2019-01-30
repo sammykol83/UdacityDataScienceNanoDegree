@@ -22,6 +22,7 @@ import nltk
 nltk.download(['punkt', 'wordnet'])
 from nltk.tokenize import word_tokenize
 from nltk.stem import WordNetLemmatizer
+import pickle
 
 # load data from database
 engine = create_engine('sqlite:///DisasterResponse.db')
@@ -87,7 +88,10 @@ for i,column in enumerate(y_test.columns.tolist()):
 # * try other machine learning algorithms
 # * add other features besides the TF-IDF
 
+
 # ### 9. Export your model as a pickle file
+filename = 'classifier.pkl'
+pickle.dump(cv, open(filename, 'wb'))
 
 # ### 10. Use this notebook to complete `train.py`
 # Use the template file attached in the Resources folder to write a script that runs the steps above to create a
