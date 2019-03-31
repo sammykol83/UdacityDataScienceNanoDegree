@@ -55,7 +55,7 @@ def GetDescriptionSentiment(filename):
     """
     
     # Open and read file
-    fullpath = os.getcwd() + '\\Data\\train_sentiment\\' + filename
+    fullpath = os.getcwd() + os.sep + 'Data' + os.sep + 'train_sentiment' + os.sep + filename
     try:
         with open(fullpath, errors='ignore') as f:
             description = json.load(f)
@@ -264,7 +264,7 @@ def ETL_pipeline(filename, is_test_set, lgb_clf_flag, do_additional_nlp):
     DOG, CAT = 1,2
  
     ## Load the data
-    df = pd.read_csv(os.getcwd() + '\\Data\\' + filename)
+    df = pd.read_csv(os.getcwd() + os.sep + 'Data' + os.sep + filename)
 
     ## Drop non relevant columns (in my opinion)
     df.drop(columns_to_drop, axis=1, inplace=True)
@@ -344,7 +344,7 @@ def ETL_pipeline_ver2(filename, is_test_set, lgb_clf_flag, do_additional_nlp):
     nlp_method = 'tf-idf' # options are:'tf-idf' or 'embedd' 
 
     ## Load the data
-    df = pd.read_csv(os.getcwd() + '\\Data\\' + filename)
+    df = pd.read_csv(os.getcwd() + os.sep + 'Data' + os.sep + filename)
 
     ## Drop non relevant columns (in my opinion)
     df.drop(columns_to_drop, axis=1, inplace=True)
@@ -658,7 +658,7 @@ def GetFeatVecForImage(petID, model, layer_name, scaler, normalize, to_tensor, p
     """
     
     # Open and read FIRST image file
-    fullpath = os.getcwd() + '\\Data\\train_images\\' + petID + '-1.jpg'
+    fullpath = os.getcwd() + os.sep + 'Data' + os.sep + 'train_images' + os.sep + petID + '-1.jpg'
     try:
         img = Image.open(fullpath)
     except:
@@ -789,13 +789,13 @@ def GetImageMetaData(df):
     agg_train_imgs: (Pandas Dataframe) DataFrame containing the metadata of photos.
     """
     
-    split_char = '\\'
+    split_char = os.sep
     
     # Create a local dataframe of petIDs 
     train_df_ids = df[['PetID']]
     
     # Get filename of images - using glob because os.listdir() doesn't return full path
-    train_image_files = sorted(glob.glob(os.getcwd()+'\Data\\train_images\*.jpg'))
+    train_image_files = sorted(glob.glob(os.getcwd() + os.sep + 'Data' + os.sep + 'train_images' + os.sep + '*.jpg'))
     
     # Generate a dataframe with the filenames
     train_df_imgs = pd.DataFrame(train_image_files)
