@@ -45,9 +45,10 @@ Adoption speed is divided into 5 labels, and thus our domain is a multi-class cl
 My solution uses the train data (tabular) + sentiment analysis for text descriptions + features extracted from photos via a ResNet-18 DNN + metadata regarding the photos.
 
 It bunches all into a GBM (implementation via LightGBM) and gave me:
-| Training QWK | CV QWK | Kaggle QWK/rank in LeaderBoard |
-|--------------- | -------- | -------------------------- |
-|    0.71        |  0.37    |       0.308 / (1665 of 2010) |  
+
+| Training QWK   | CV QWK   | Kaggle QWK/rank in LeaderBoard |
+|--------------- | -------- | ------------------------------ |
+|    0.71        |  0.37    |     0.308 / (1665 of 2010)     |  
 
 (Though my Kaggle score wasn't derived from my best implementation. Best Public LB is 0.509).
 
