@@ -4,6 +4,7 @@
 The project is a classifier implementation for the PetFinder.my [Kaggle competition](https://www.kaggle.com/c/petfinder-adoption-prediction/kernels). The goal is to develop a classifier that gets input about a target pet and can estimate how quickly it will be adopted. 
 
 the files in the repository with a small description of each, a summary of the results of the analysis, and necessary acknowledgements.
+For a nice textual report, check out [this](https://medium.com/@sammykol/how-i-failed-my-1st-kaggle-competition-df8cd98b7eb5) blog post :)
 
 ## Table of contents
 - [Motivation](#motivation)
