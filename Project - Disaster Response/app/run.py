@@ -12,7 +12,7 @@ from sqlalchemy import create_engine
 from return_figures import return_figures
 
 #----------- Change this flag to run on a local PC host --------- #
-run_on_udacity_terminal = 1
+run_on_udacity_terminal = 0
 #---------------------------------------------------------------- #
 
 app = Flask(__name__)
