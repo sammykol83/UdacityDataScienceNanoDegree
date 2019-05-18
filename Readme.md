@@ -11,6 +11,7 @@ Each sub directory contains a readme.md file describing the project.
 * Classification of pet adoption rates based on tabular/text/image data. 
 Using Boosted Gradient methods, NLP and image feature extraction.
 * ML pipeline for SMS classification in disaster areas using NLP and ensemble learning and showing results in Bootstrap generated dashboard.
+* Recommendation system implementation on data from IBM WATSON platform. 
 * Heroku web dashboard deployment for some predictive statistics from Google Play database. 
 * Predictive modelling of solar panel deployment in the US. 
 * Market segmentation for mail company in Germany utilising K-means clustering, PCA and various data wrangling methods. 
