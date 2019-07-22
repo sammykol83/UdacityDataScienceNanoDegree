@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Downer Classifier</title>
+  </head>
+  <body>
+    
+	<div class="container">
+		<div class="media">
+			<img class="mr-3 mt-3 rounded-circle" src="https://media.licdn.com/dms/image/C510BAQEJy9zrDqXApQ/company-logo_400_400/0?e=1571875200&v=beta&t=44dKTYce8O0sgzAdGg6u6lQ22K_xoBWK_KY893z1SOo" alt="Generic placeholder image" style="width:90px;">
+			<div class="media-body">
+			<h5 class="mt-0">RedMarble AI</h5>
+			Downer weather/delay classifier
+		</div>
+	</div>
+		<form>
+		  <div class="form-group">
+			<label for="training_input">Training utterance</label>
+			<input type="text" class="form-control" id="utteranceInput" aria-describedby="utteranceHelp" placeholder="Enter utterance">
+			<small id="utteranceHelp" class="form-text text-muted">Enter training utterance</small>
+		  </div>
+		  <button type="submit" class="btn btn-primary">Submit</button>
+		  <div class="mt-2 alert alert-success" role="alert">
+			Classification result: Not a weather or delay event
+		  </div>
+		  <div class="container">
+		  <button type="button" class="mt-2 btn btn-outline-danger">Weather+Delay</button>
+		  <button type="button" class="mt-2 btn btn-outline-secondary">Delay</button>
+		  <button type="button" class="mt-2 btn btn-outline-warning">Weather</button>
+		  <button type="button" class="mt-2 btn btn-outline-primary">Not weather or delay</button>
+		  </div>
+		</form>
+	</div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>
