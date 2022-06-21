@@ -4,7 +4,7 @@ json==2.0.9
 lightgbm==2.2.3
 matplotlib==3.0.2
 nltk==3.4
-numpy==1.16.2
+numpy==1.22.0
 pandas==0.23.4
 Pillow==5.3.0
 requests==2.21.0
